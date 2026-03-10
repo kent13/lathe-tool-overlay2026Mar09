@@ -1,0 +1,5 @@
+{
+  "name": "Lathe Tool Overlay",
+  "description": "Capture lathe tool, remove the background, and overlay the tool on live webcam feed.",
+  "requestFramePermissions": ["camera"]
+}
