@@ -2,7 +2,10 @@ const CACHE_NAME = 'lathe-overlay-v1';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
-  './manifest.json'
+  './manifest.json',
+  './apple-touch-icon.png',
+  '/icon-192.png',
+  '/icon-512.png'
 ];
 
 self.addEventListener('install', (event) => {
