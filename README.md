@@ -5,11 +5,11 @@ A web application designed for machinists to capture lathe tools and overlay the
 ## Features
 
 - **Live Camera Feed**: Real-time monitoring of your lathe workspace.
-- **Local AI Background Removal**: Automatically isolates the tool from the background using on-device machine learning (no API keys required).
+- **Local Background Removal**: Automatically isolates the tool from the background using on-device machine learning (no API keys required).
 - **Interactive Overlays**: Drag, scale, and adjust the opacity of captured tools.
 - **Multi-Camera Support**: Easily switch between available cameras (e.g., built-in webcam vs. external USB camera).
 - **Privacy Focused**: All image processing happens locally in your browser.
-
+ 
 ## Development
 
 1. Install dependencies:
@@ -66,4 +66,4 @@ Ensure your server is configured to serve `.wasm` files with the correct MIME ty
 - **Tailwind CSS** for styling
 - **Motion** for animations
 - **Lucide React** for icons
-- **@imgly/background-removal** for local AI processing
+- **@imgly/background-removal** for local processing
