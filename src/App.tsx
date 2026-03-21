@@ -39,9 +39,9 @@ export default function App() {
     <div className="fixed inset-0 bg-zinc-950 text-zinc-100 font-sans overflow-hidden">
       {/* Main Camera View */}
       <div className="relative w-full h-full z-0">
-        <WebcamFeed 
-          onCapture={handleCapture} 
-          isCapturing={isProcessing} 
+        <WebcamFeed
+          onCapture={handleCapture}
+          isCapturing={isProcessing}
           showCaptureButton={!tool && !isProcessing}
         />
 
@@ -50,9 +50,9 @@ export default function App() {
           <AnimatePresence>
             {tool && (
               <div key={tool.id} className="absolute inset-0 pointer-events-none">
-                <ToolOverlay 
-                  imageUrl={tool.url} 
-                  onClose={() => setTool(null)} 
+                <ToolOverlay
+                  imageUrl={tool.url}
+                  onClose={() => setTool(null)}
                 />
               </div>
             )}
@@ -143,6 +143,14 @@ export default function App() {
                   <li className="flex gap-3">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-200">3</span>
                     <p>Scale and adjust the transparency of the tool overlay to compare it with your workpiece.</p>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-200">4</span>
+                    <p>Tap the clear button to remove the tool overlay and capture a new one.</p>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-zinc-200">5</span>
+                    <p><a href="https://www.boohoo.us/wood-workings/HollowFormAssist" target="_blank" rel="noopener noreferrer"> <u>Web Home and Help</u></a></p>
                   </li>
                 </ul>
 
