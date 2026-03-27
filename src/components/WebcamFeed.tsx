@@ -19,6 +19,7 @@ export const WebcamFeed: React.FC<WebcamFeedProps> = ({ onCapture, isCapturing, 
   const [showDeviceList, setShowDeviceList] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // Track container size for proper rotation scaling
   useEffect(() => {
@@ -80,10 +81,14 @@ export const WebcamFeed: React.FC<WebcamFeedProps> = ({ onCapture, isCapturing, 
           
           videoRef.current.onloadedmetadata = () => {
             videoRef.current?.play()
-              .then(() => setIsLoading(false))
+              .then(() => {
+                setIsPlaying(true);
+                setIsLoading(false);
+              })
               .catch(e => {
                 console.error("Video play failed:", e);
                 // If autoplay fails, we'll show a button or handle it
+                setIsPlaying(false);
                 setIsLoading(false);
               });
           };
@@ -170,6 +175,8 @@ export const WebcamFeed: React.FC<WebcamFeedProps> = ({ onCapture, isCapturing, 
         autoPlay
         playsInline
         muted
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
         className={`absolute top-1/2 left-1/2 object-cover transition-all duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
         style={{ 
           transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
@@ -179,7 +186,7 @@ export const WebcamFeed: React.FC<WebcamFeedProps> = ({ onCapture, isCapturing, 
       />
       
       {/* iOS Autoplay Fallback */}
-      {!isLoading && videoRef.current && videoRef.current.paused && (
+      {!isLoading && !isPlaying && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-20">
           <button
             onClick={() => videoRef.current?.play()}

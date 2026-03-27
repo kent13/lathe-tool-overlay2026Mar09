@@ -11,7 +11,7 @@ export default defineConfig(({ command }) => ({
     command === 'serve' ? basicSsl() : null
   ].filter(Boolean),
   define: {
-    __BUILD_DATE__: JSON.stringify(new Date().toISOString().split('T')[0]),
+    __BUILD_DATE__: JSON.stringify(new Date().toLocaleString('en-US')),
   },
   server: {
     port: 3000,
