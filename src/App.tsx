@@ -59,6 +59,15 @@ export default function App() {
           </AnimatePresence>
         </div>
 
+        {/* Crosshair Overlay */}
+        <div className="absolute inset-0 pointer-events-none z-50 flex items-center justify-center opacity-80">
+          <div className="relative w-16 h-16">
+            <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-green-500/80 -translate-y-1/2 drop-shadow-md" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-green-500/80 -translate-x-1/2 drop-shadow-md" />
+            <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-white -translate-x-1/2 -translate-y-1/2 rounded-full drop-shadow-md" />
+          </div>
+        </div>
+
         {/* UI Controls */}
         <div className="absolute top-4 left-4 right-4 flex justify-between items-start pointer-events-none z-[100]">
           <div className="pointer-events-auto flex flex-col gap-2">
