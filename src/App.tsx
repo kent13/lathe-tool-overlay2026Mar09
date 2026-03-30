@@ -75,7 +75,7 @@ export default function App() {
               Lathe Tool Overlay
             </h1>
             <p className="text-xs text-white/70 drop-shadow-md">
-              Capture tools to compare them with live work.
+              Build: {__BUILD_DATE__}
             </p>
             {tool && (
               <button
@@ -105,12 +105,6 @@ export default function App() {
           </div>
         )}
 
-        {/* Build Info */}
-        <div className="absolute bottom-4 left-4 pointer-events-none z-[100]">
-          <p className="text-[10px] text-white/30 font-mono drop-shadow-sm">
-            Build: {__BUILD_DATE__}
-          </p>
-        </div>
 
         {/* Help Modal */}
         <AnimatePresence>
@@ -169,6 +163,10 @@ export default function App() {
                 >
                   Got it
                 </button>
+                <div className="text-xs text-white/70 drop-shadow-md">
+                  <p>&nbsp;</p>
+                  <p class="text-right">Build: {__BUILD_DATE__}</p>
+                </div>
               </motion.div>
             </motion.div>
           )}
